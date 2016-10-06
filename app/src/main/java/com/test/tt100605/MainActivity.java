@@ -15,6 +15,19 @@ public class MainActivity extends AppCompatActivity {
         wv = (WebView) findViewById(R.id.webView);
         wv.getSettings().setJavaScriptEnabled(true);
         wv.setWebViewClient(new WebViewClient());
-        wv.loadUrl("http://tw.yahoo.com/");
+        // wv.loadUrl("http://tw.yahoo.com/");
+        wv.loadUrl("file:///android_asset/index.html");
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (wv.getUrl().contains("index.html"))
+        {
+            super.onBackPressed();
+        }
+        else
+        {
+            wv.goBack();
+        }
     }
 }
